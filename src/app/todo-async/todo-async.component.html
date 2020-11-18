@@ -1,0 +1,8 @@
+<form [formGroup]="todoListForm" (ngSubmit)="onAddItem()">
+  <input formControlName="todoItem" > <button type="submit">Add Item</button>
+  <ul *ngIf="todoItems | async as todo">
+    <li *ngFor="let item of todo" [ngStyle]="{width: '200px', 'marginBottom': '5px', justifyContent: 'space-between', display: 'flex'}">
+      {{item}} <button (click)="removeItem(item)" [ngStyle]="{color: 'red'}" type="button">X</button>
+    </li>
+  </ul>
+</form>
